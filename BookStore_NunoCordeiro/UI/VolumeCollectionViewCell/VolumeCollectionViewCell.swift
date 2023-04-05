@@ -19,6 +19,8 @@ class VolumeCollectionViewCell: UICollectionViewCell {
 
     func configure(volumeInfo: VolumeInfo) {
         titleLabel.text = volumeInfo.title
+        self.contentView.addDropShadow()
+        self.clipsToBounds = false
     }
 
 }

@@ -10,13 +10,18 @@ import UIKit
 
 class AppConstants {
     
-    private init() {}
+    private init() {}   // ensures singleton
+    
     static let shared = AppConstants()
     
     let AppName = "Bookstore"
     
+    static var isDeviceAnIpad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
     public struct Colors {
-        static let secondaryColor: UIColor = UIColor(named: "secondaryColor")!
+        static let secondaryColor: UIColor = UIColor(named: "secondaryColor") ?? UIColor.systemBackground
     }
     
     public struct Fonts {
@@ -25,12 +30,6 @@ class AppConstants {
     }
  
     var mainStoryboardName: String {
-        return UIDevice.current.userInterfaceIdiom == .pad ? "Main_iPad" : "Main"
+        return AppConstants.isDeviceAnIpad ? "Main_iPad" : "Main"
     }
 }
-
-
-
-
-
-

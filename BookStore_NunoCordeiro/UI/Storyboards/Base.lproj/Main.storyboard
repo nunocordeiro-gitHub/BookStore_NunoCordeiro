@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W7R-CQ-Kda">
-                                <rect key="frame" x="0.0" y="59" width="393" height="683"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="683.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="B9Q-07-Zsh">
                                     <size key="itemSize" width="128" height="128"/>
@@ -45,11 +45,18 @@
                                 </constraints>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk9-c4-eJM">
-                                <rect key="frame" x="203" y="762" width="105" height="21"/>
+                                <rect key="frame" x="203" y="762.33333333333337" width="105" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-cL-bqO">
+                                <rect key="frame" x="0.0" y="690" width="393" height="64"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="vb9-Rj-f7G"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NgQ-ig-Cjb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,7 +67,10 @@
                             <constraint firstItem="kGU-re-v1i" firstAttribute="leading" secondItem="mk9-c4-eJM" secondAttribute="trailing" constant="8" id="cj1-rA-UxV"/>
                             <constraint firstItem="W7R-CQ-Kda" firstAttribute="top" secondItem="NgQ-ig-Cjb" secondAttribute="top" id="dTX-AA-nhe"/>
                             <constraint firstItem="W7R-CQ-Kda" firstAttribute="leading" secondItem="NgQ-ig-Cjb" secondAttribute="leading" id="fOd-DM-Fg2"/>
+                            <constraint firstItem="mvn-cL-bqO" firstAttribute="trailing" secondItem="NgQ-ig-Cjb" secondAttribute="trailing" id="gGr-7T-8eH"/>
+                            <constraint firstItem="kGU-re-v1i" firstAttribute="top" secondItem="mvn-cL-bqO" secondAttribute="bottom" constant="3" id="oGs-9e-SJc"/>
                             <constraint firstItem="mk9-c4-eJM" firstAttribute="top" secondItem="W7R-CQ-Kda" secondAttribute="bottom" constant="20" id="wU0-tG-ebu"/>
+                            <constraint firstItem="mvn-cL-bqO" firstAttribute="leading" secondItem="NgQ-ig-Cjb" secondAttribute="leading" id="wvO-IU-CGJ"/>
                             <constraint firstItem="NgQ-ig-Cjb" firstAttribute="trailing" secondItem="W7R-CQ-Kda" secondAttribute="trailing" id="z2S-wh-SNJ"/>
                         </constraints>
                     </view>

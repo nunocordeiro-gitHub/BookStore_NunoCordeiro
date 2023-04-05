@@ -16,11 +16,12 @@ class VolumeListViewController: BaseViewController {
     // MARK: Class variables and constants
     let reuseIdentifier = "cell"
     var volumes: [Volume]?
-    
-    
-    //MARK: ViewControllerlifecycle
+        
+    //MARK: ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
         configure()
     }
     
@@ -29,13 +30,15 @@ class VolumeListViewController: BaseViewController {
     
     func configure() {
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        
         let cellNib = UINib(nibName: String(describing: VolumeCollectionViewCell.self), bundle: .main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
         
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = constants.inset.left * 2.0
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.backgroundColor = AppConstants.Colors.secondaryColor
         
         Task {
             showLoader()
@@ -44,11 +47,16 @@ class VolumeListViewController: BaseViewController {
             hideLoader()
         }
     }
+    
+    //MARK: - Reusable local constants
+    struct constants {
+        static let inset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+    }
 }
 
 
-
-extension VolumeListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension VolumeListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return volumes?.count ?? 0
     }
@@ -65,5 +73,17 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
         let vc = VolumeDetailViewController.instantiate()
         vc.volume = volumes?[indexPath.item]
         present(vc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return constants.inset
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let lay = collectionViewLayout as! UICollectionViewFlowLayout
+        let colCount = AppConstants.isDeviceAnIpad ? 4.0 : 2.0
+        let widthPerItem = collectionView.frame.width / colCount - lay.minimumInteritemSpacing
+        
+        return CGSize(width:widthPerItem, height: widthPerItem * 1.6)
     }
 }
