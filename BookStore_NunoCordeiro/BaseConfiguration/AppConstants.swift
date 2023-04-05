@@ -23,10 +23,6 @@ class AppConstants {
         static let largeTitleFont: UIFont = UIFont(name: "Georgia", size: 40)!
         static let secondaryFont = UIFont(name: "Trebuchet MS", size: 18)
     }
-    
-    enum userProfile {
-        case hcp, admin, abm
-    }
  
     var mainStoryboardName: String {
         return UIDevice.current.userInterfaceIdiom == .pad ? "Main_iPad" : "Main"

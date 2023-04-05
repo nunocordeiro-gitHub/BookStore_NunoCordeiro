@@ -9,10 +9,9 @@ import Foundation
 
 class ApiManager {
     
-    //MARK: Constants and shared values
-    private var request: URLRequest?
-    private let baseURL = "https://www.googleapis.com/books/v1/"
     
+    //MARK: Constants and shared values
+    private let baseURL = "https://www.googleapis.com/books/v1/"
     
     enum Endpoint: String {
         case getVolumes = "volumes?q=ios&maxResults=20&startIndex=0"
@@ -25,10 +24,10 @@ class ApiManager {
     }
     
     
-    //MARK: singleton
-    
+    //MARK: Singleton
     static var shared = ApiManager()
     private init () {}
+    
     
     //MARK: - Implementation
     
@@ -51,7 +50,7 @@ class ApiManager {
         } catch {
             DLog(error)                         //  Sometimes gives additional clues on what went wrong
             DLog(error.localizedDescription)    //  More readable description on what went wrong
-                                                //  TODO: push log info to external log
+                                                //  TODO: push error info to external log feature such as firebase / crashlytics or similar
             return nil
         }
     }
