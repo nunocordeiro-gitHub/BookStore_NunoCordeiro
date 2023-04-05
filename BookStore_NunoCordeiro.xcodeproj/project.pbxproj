@@ -26,6 +26,7 @@
 		9A5E2E3729DCA6690023AF4D /* ApiManager+Volumes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3629DCA6690023AF4D /* ApiManager+Volumes.swift */; };
 		9A5E2E3A29DCA78A0023AF4D /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3929DCA78A0023AF4D /* Volume.swift */; };
 		9A5E2E3E29DCAC120023AF4D /* VolumeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3D29DCAC120023AF4D /* VolumeListViewController.swift */; };
+		9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */; };
 		9ABA62A029DCD8BD004EBCC7 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */; };
 		9ABA62A229DCDC68004EBCC7 /* VolumeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		9A5E2E3629DCA6690023AF4D /* ApiManager+Volumes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiManager+Volumes.swift"; sourceTree = "<group>"; };
 		9A5E2E3929DCA78A0023AF4D /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		9A5E2E3D29DCAC120023AF4D /* VolumeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeListViewController.swift; sourceTree = "<group>"; };
+		9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Caching.swift"; sourceTree = "<group>"; };
 		9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +189,7 @@
 				9A5E2E2929DCA3640023AF4D /* UIView.swift */,
 				9A5E2E2A29DCA3640023AF4D /* Encodable.swift */,
 				9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */,
+				9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				9A5E2DF929DCA1DD0023AF4D /* SceneDelegate.swift in Sources */,
 				9A5E2E3329DCA4E20023AF4D /* Globals.swift in Sources */,
 				9A5E2E2C29DCA3640023AF4D /* Encodable.swift in Sources */,
+				9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */,
 				9A5E2E3E29DCAC120023AF4D /* VolumeListViewController.swift in Sources */,
 				9ABA62A229DCDC68004EBCC7 /* VolumeDetailViewController.swift in Sources */,
 				9A5E2E3A29DCA78A0023AF4D /* Volume.swift in Sources */,

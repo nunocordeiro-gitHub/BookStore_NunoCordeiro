@@ -11,6 +11,7 @@ class VolumeCollectionViewCell: UICollectionViewCell {
 
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,9 +19,12 @@ class VolumeCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(volumeInfo: VolumeInfo) {
+        
         titleLabel.text = volumeInfo.title
+        if let thumbnailURL = volumeInfo.imageLinks?.smallThumbnail {
+            imageView.load(urlString: thumbnailURL)
+        }
         self.contentView.addDropShadow()
         self.clipsToBounds = false
     }
-
 }

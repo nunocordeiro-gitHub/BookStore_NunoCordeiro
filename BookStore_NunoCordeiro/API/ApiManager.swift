@@ -23,7 +23,6 @@ class ApiManager {
         case getRequest = "GET"
     }
     
-    
     //MARK: Singleton
     static var shared = ApiManager()
     private init () {}

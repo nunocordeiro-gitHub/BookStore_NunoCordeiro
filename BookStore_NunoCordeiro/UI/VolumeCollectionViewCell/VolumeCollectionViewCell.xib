@@ -20,14 +20,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3I-Hf-FQa">
                         <rect key="frame" x="2" y="0.0" width="126" height="181"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-CT-8aB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-CT-8aB">
                                 <rect key="frame" x="4" y="157" width="118" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="wJh-Ox-aoK">
-                                <rect key="frame" x="0.0" y="0.0" width="126" height="134"/>
+                                <rect key="frame" x="0.0" y="-1" width="126" height="134"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -52,6 +52,7 @@
             </constraints>
             <size key="customSize" width="130" height="189"/>
             <connections>
+                <outlet property="imageView" destination="wJh-Ox-aoK" id="xdu-t4-cxi"/>
                 <outlet property="titleLabel" destination="b9o-CT-8aB" id="7BZ-iR-s8O"/>
             </connections>
             <point key="canvasLocation" x="200" y="67.957746478873247"/>

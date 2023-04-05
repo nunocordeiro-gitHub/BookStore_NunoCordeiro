@@ -9,13 +9,15 @@ import Foundation
 
 
 extension ApiManager {
-    func getVolumes() async -> [Volume]? {
+    func getVolumes(startIndex: Int) async -> [Volume]? {
          
-        //TODO: add paging parameters here
+        let params = ["startIndex" : startIndex]
         
         return await ApiManager.shared.sendRequest(model: [Volume].self,
                                                    with: .getVolumes,
-                                                   requestType: .getRequest)
+                                                   requestType: .getRequest,
+                                                   parameters: params
+        )
     }
 }
 

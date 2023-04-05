@@ -42,7 +42,7 @@ class VolumeListViewController: BaseViewController {
         
         Task {
             showLoader()
-            volumes = await ApiManager.shared.getVolumes()
+            volumes = await ApiManager.shared.getVolumes(startIndex: 0)
             collectionView.reloadData()
             hideLoader()
         }
