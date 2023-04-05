@@ -61,5 +61,9 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = VolumeDetailViewController.instantiate()
+        vc.volume = volumes?[indexPath.item]
+        present(vc, animated: true)
+    }
 }

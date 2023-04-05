@@ -10,12 +10,15 @@ import Foundation
 
 // MARK: - Welcome
 struct Volume: Codable {
-    let kind, id, etag: String?
-    let selfLink: String?
-    let volumeInfo: VolumeInfo?
-    let saleInfo: SaleInfo?
-    let accessInfo: AccessInfo?
-    let searchInfo: SearchInfo?
+    let id: String
+    let volumeInfo: VolumeInfo
+    let saleInfo: SaleInfo
+    
+//      Uncomment as needed on future releases
+//    let kind, etag: String?
+//    let selfLink: String?
+//    let accessInfo: AccessInfo?
+//    let searchInfo: SearchInfo?
 }
 
 // MARK: - AccessInfo

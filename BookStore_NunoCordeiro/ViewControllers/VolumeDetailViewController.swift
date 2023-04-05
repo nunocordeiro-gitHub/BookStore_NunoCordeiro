@@ -9,6 +9,11 @@ import UIKit
 
 class VolumeDetailViewController: BaseViewController {
 
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    
+    
     var volume: Volume?
     
     override func viewDidLoad() {
@@ -18,7 +23,8 @@ class VolumeDetailViewController: BaseViewController {
     
     
     private func configure() {
-        
+        titleLabel.text = volume?.volumeInfo.title
+        authorLabel.text = volume?.volumeInfo.authors?.first
     }
 
     @IBAction func closeTapped(_ sender: Any) {
