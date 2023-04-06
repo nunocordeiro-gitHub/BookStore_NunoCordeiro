@@ -17,6 +17,7 @@ class VolumeListViewController: BaseViewController {
     let reuseIdentifier = "cell"
     var volumes: [Volume]?
     var isLoading = false
+    var startIndex = 0
     
     //MARK: ViewController lifecycle
     override func viewDidLoad() {
@@ -49,16 +50,34 @@ class VolumeListViewController: BaseViewController {
         }
     }
     
-    func loadMoreData() {
+    func loadData() {
+        
+        DLog("load more")
+        
         if !self.isLoading {
             self.isLoading = true
-            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) { // Remove the 1-second delay if you want to load the data without waiting
-                // Download more data here
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                    self.isLoading = false
+            
+            
+            
+            
+            //            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) { // Remove the 1-second delay if you want to load the data without waiting
+            
+            Task {
+                if let newPageVolumes = await ApiManager.shared.getVolumes(startIndex: startIndex) {
+                    volumes?.append(contentsOf: newPageVolumes)
+                    startIndex += ApiManager.constants.volumesFetchPageSize
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                        self.isLoading = false
+                        
+                    }
                 }
             }
+            
+            
+            
+            //          }
         }
     }
     
@@ -105,8 +124,8 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
         
         guard let datasourceCount = volumes?.count else { return }
         
-        if indexPath.item == datasourceCount - 10, !isLoading {
-            loadMoreData()
+        if indexPath.item == datasourceCount - ApiManager.constants.volumesFetchPageSize, !isLoading {
+            loadData()
         }
     }
 }

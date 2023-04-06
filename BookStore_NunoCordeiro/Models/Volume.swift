@@ -80,7 +80,8 @@ struct VolumeInfo: Codable {
     let pageCount: Int?
     let printType: String?
     let categories: [String]?
-    let averageRating, ratingsCount: Int?
+    let averageRating: Double?
+    let ratingsCount: Int?
     let maturityRating: String?
     let allowAnonLogging: Bool?
     let contentVersion: String?

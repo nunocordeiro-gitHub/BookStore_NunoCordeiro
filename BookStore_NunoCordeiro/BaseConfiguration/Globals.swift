@@ -8,24 +8,18 @@
 import Foundation
 import UIKit
 
-private let verboseLog = false
-
 //NC - consider renaming to print and override original print
 func DLog(_ items: Any) {
-    #if DEBUG
-    if verboseLog {
-        print(items)
-    }
-    #endif
+#if DEBUG
+    print(items)
+#endif
 }
 
 // Same as previous with variadic signature
 func DLog(_ items: Any...) {
-    #if DEBUG
-    if verboseLog {
-        print(items)
-    }
-    #endif
+#if DEBUG
+    print(items)
+#endif
 }
 
 

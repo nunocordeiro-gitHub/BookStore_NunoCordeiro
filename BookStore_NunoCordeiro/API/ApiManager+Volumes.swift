@@ -9,16 +9,28 @@ import Foundation
 
 
 extension ApiManager {
+    /// <#Description#>
+    /// - Parameter startIndex: volume to start
+    /// - Returns: Array of parsed volumes
     func getVolumes(startIndex: Int) async -> [Volume]? {
-         
-        let params = ["startIndex" : startIndex]
+        
+        let params = ["q": "ios",
+                      "startIndex": String(describing: startIndex),
+                      "maxResults": String(describing:  constants.volumesFetchPageSize)
+        ]
         
         return await ApiManager.shared.sendRequest(model: [Volume].self,
                                                    with: .getVolumes,
                                                    requestType: .getRequest,
-                                                   parameters: params
+                                                   urlParameters: params
         )
     }
+
+    // MARK: - Volumes specific constants
+    struct constants {
+        static let volumesFetchPageSize = 20
+    }
+    
 }
 
 
