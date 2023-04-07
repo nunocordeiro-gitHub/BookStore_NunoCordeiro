@@ -23,8 +23,7 @@ class AppConstants {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    var mainStoryboardName: String {
-        return AppConstants.isDeviceAnIpad ? "Main_iPad" : "Main"
-    }
+    let mainStoryboardName = "Main"
+    
 }
     

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -136,10 +137,26 @@
                                     <action selector="favoriteTapped:" destination="SbR-yl-8ha" eventType="touchUpInside" id="hZM-yc-5gG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thB-Fj-z5h">
+                                <rect key="frame" x="353" y="59" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="K7j-ez-Mun"/>
+                                    <constraint firstAttribute="width" constant="40" id="SIU-Qe-xEk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="xmark.app" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="SbR-yl-8ha" eventType="touchUpInside" id="eVU-NQ-tAy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="duY-qo-WEk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="duY-qo-WEk" firstAttribute="trailing" secondItem="thB-Fj-z5h" secondAttribute="trailing" id="27u-ZF-PN2"/>
                             <constraint firstItem="uVE-BC-VOW" firstAttribute="top" secondItem="duY-qo-WEk" secondAttribute="top" constant="20" id="496-Fq-rZ4"/>
                             <constraint firstItem="xPU-gn-JD1" firstAttribute="top" secondItem="uVE-BC-VOW" secondAttribute="bottom" constant="30" id="8CL-bB-o45"/>
                             <constraint firstItem="duY-qo-WEk" firstAttribute="bottom" secondItem="knI-GK-Hil" secondAttribute="bottom" constant="20" id="CbE-Sr-P8H"/>
@@ -147,6 +164,7 @@
                             <constraint firstItem="duY-qo-WEk" firstAttribute="trailing" secondItem="xPU-gn-JD1" secondAttribute="trailing" constant="80" id="GsE-fl-JL2"/>
                             <constraint firstItem="hQT-nF-sMy" firstAttribute="centerX" secondItem="BGe-9Y-mjD" secondAttribute="centerX" id="JOW-8f-LLB"/>
                             <constraint firstItem="hQT-nF-sMy" firstAttribute="top" secondItem="xPU-gn-JD1" secondAttribute="bottom" constant="8" id="L2y-El-3vw"/>
+                            <constraint firstItem="thB-Fj-z5h" firstAttribute="top" secondItem="duY-qo-WEk" secondAttribute="top" id="Sa7-YT-uYx"/>
                             <constraint firstItem="duY-qo-WEk" firstAttribute="trailing" secondItem="uVE-BC-VOW" secondAttribute="trailing" constant="30" id="XVp-Iy-sgQ"/>
                             <constraint firstItem="knI-GK-Hil" firstAttribute="top" secondItem="wht-e0-Yl4" secondAttribute="bottom" constant="20" id="Zfw-aB-SF8"/>
                             <constraint firstItem="duY-qo-WEk" firstAttribute="bottom" secondItem="wht-e0-Yl4" secondAttribute="bottom" constant="86" id="hjz-Cz-oH7"/>
@@ -160,6 +178,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="hQT-nF-sMy" id="fWh-zv-gt3"/>
                         <outlet property="buyButton" destination="knI-GK-Hil" id="jyI-NP-yzC"/>
+                        <outlet property="closeButton" destination="thB-Fj-z5h" id="ni2-36-euN"/>
                         <outlet property="descriptionTextView" destination="wht-e0-Yl4" id="92g-nU-QFK"/>
                         <outlet property="favoriteButton" destination="9VZ-uF-2td" id="n4i-TW-LlU"/>
                         <outlet property="textViewBottomConstraint" destination="hjz-Cz-oH7" id="TQ0-Fs-bbm"/>
@@ -173,6 +192,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark.app" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

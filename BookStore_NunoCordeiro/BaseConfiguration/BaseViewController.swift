@@ -10,7 +10,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     private var loaderView: UIView = UIView()
-    
+    let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +25,25 @@ class BaseViewController: UIViewController {
         loaderView = UIView(frame: view.frame)
         loaderView.backgroundColor = .black
         loaderView.alpha = 0.5
+        spinner.transform = CGAffineTransform(scaleX: 2, y: 2)
 
-        self.view.addSubview(loaderView)
+        
+        DispatchQueue.main.async {
+            
+            self.spinner.startAnimating()
+            self.view.addSubview(self.loaderView)
+            self.spinner.center = self.view.center
+            self.view.insertSubview(self.spinner, aboveSubview: self.loaderView)
+        }
+        
     }
     
     func hideLoader() {
-        loaderView.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.loaderView.removeFromSuperview()
+            self.spinner.removeFromSuperview()
+        }
+        
     }
 
     

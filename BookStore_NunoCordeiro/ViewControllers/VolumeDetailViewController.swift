@@ -19,6 +19,7 @@ class VolumeDetailViewController: BaseViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var buyButton: PrimaryButton!
+    @IBOutlet weak var closeButton: UIButton!
     
     
     // MARK: - ViewController wide constants and variables
@@ -28,13 +29,13 @@ class VolumeDetailViewController: BaseViewController {
     //TODO: emptyState?
     
     // MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bindModelData()
         setupUI()
     }
-
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -43,16 +44,15 @@ class VolumeDetailViewController: BaseViewController {
                                       width: constants.favoriteButtonSize,
                                       height: constants.favoriteButtonSize)
     }
+    
+    
     // MARK: - UI
     fileprivate func setupUI() {
 
         titleLabel.textColor = UIColor.primary
         descriptionTextView.isEditable = false
         thumbailImageView.addDropShadow()
-
-    
-        
-        
+        closeButton.tintColor = .label
         
         setupFavoriteButton()
         
@@ -66,7 +66,6 @@ class VolumeDetailViewController: BaseViewController {
                let currencyCode = volume?.saleInfo?.retailPrice?.currencyCode {
                 buyTitle = "\(buyTitle) \(finalPrice) \(currencyCode)"
             }
-            
             buyButton.setTitle(buyTitle , for: .normal)
         } else {
             buyButton.removeFromSuperview()
@@ -91,6 +90,9 @@ class VolumeDetailViewController: BaseViewController {
         favoriteButton.setImage(heartImage, for: .normal)
     }
     
+    
+    // MARK: - Data Binding
+    
     fileprivate func bindModelData() {
         
         titleLabel.text = volume?.volumeInfo?.title
@@ -113,6 +115,11 @@ class VolumeDetailViewController: BaseViewController {
             showError(message: constants.noLinkMessage)
         }
     }
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
     
     @IBAction func favoriteTapped(_ sender: Any) {
         guard let volume = self.volume else { return }

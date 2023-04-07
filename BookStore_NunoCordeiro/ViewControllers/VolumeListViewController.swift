@@ -29,8 +29,9 @@ class VolumeListViewController: BaseViewController {
         listTypeSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
         vm.browseType = .apiFetch
         setupUI()
-        
+        showLoader()
         vm.loadData {
+            self.hideLoader()
             self.refreshCollectionView()
         }
     }
@@ -57,8 +58,10 @@ class VolumeListViewController: BaseViewController {
     
     @objc func switchChanged(mySwitch: UISwitch) {
         vm.resetVolumesList()
-        vm.browseType = mySwitch.isOn ? .favorites : .apiFetch        
+        vm.browseType = mySwitch.isOn ? .favorites : .apiFetch
+        showLoader()
         vm.loadData {
+            self.hideLoader()
             self.refreshCollectionView()
         }
     }
@@ -108,7 +111,9 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
         if indexPath.item == vm.volumes.count - 10,
            isLoading == false,
            vm.browseType == .apiFetch {
+            showLoader()
             vm.loadData {
+                self.hideLoader()
                 self.refreshCollectionView()
             }
         }
