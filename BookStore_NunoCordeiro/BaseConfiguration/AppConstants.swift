@@ -15,6 +15,7 @@ class AppConstants {
     static let shared = AppConstants()
     
     let AppName = "Bookstore"
+    let goldenRatio = 1.61803398875
     
     var favoriteVolumes: [Volume] = UserDefaults.standard.userVolumes
     

@@ -9,6 +9,7 @@ import UIKit
 
 class VolumeDetailViewController: BaseViewController {
     
+    
     // MARK: - Interface Builder Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,6 +20,7 @@ class VolumeDetailViewController: BaseViewController {
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var buyButton: PrimaryButton!
     
+    
     // MARK: - ViewController wide constants and variables
     var volume: Volume?
     var buyUrl: String?
@@ -28,10 +30,19 @@ class VolumeDetailViewController: BaseViewController {
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        
         bindModelData()
+        setupUI()
     }
 
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        favoriteButton.frame = CGRect(x: thumbailImageView.frame.maxX - constants.favoriteButtonSize / 2,
+                                      y: thumbailImageView.frame.minY - constants.favoriteButtonSize / 2,
+                                      width: constants.favoriteButtonSize,
+                                      height: constants.favoriteButtonSize)
+    }
     // MARK: - UI
     fileprivate func setupUI() {
 
@@ -39,10 +50,8 @@ class VolumeDetailViewController: BaseViewController {
         descriptionTextView.isEditable = false
         thumbailImageView.addDropShadow()
 
-        favoriteButton.frame = CGRect(x: thumbailImageView.frame.maxX - constants.favoriteButtonSize / 2,
-                                      y: thumbailImageView.frame.minY - constants.favoriteButtonSize / 2,
-                                      width: constants.favoriteButtonSize,
-                                      height: constants.favoriteButtonSize)
+    
+        
         
         
         setupFavoriteButton()
@@ -60,25 +69,26 @@ class VolumeDetailViewController: BaseViewController {
             
             buyButton.setTitle(buyTitle , for: .normal)
         } else {
-            buyButton.isHidden = true
+            buyButton.removeFromSuperview()
             textViewBottomConstraint.constant = 20
         }
     }
     
     fileprivate func setupFavoriteButton() {
-        let sfSymbol: String
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 40, weight: .light, scale: .large)
+        
+        let sfSymbolName: String
+        let heartButtonConfig = UIImage.SymbolConfiguration(pointSize: constants.favoriteButtonSize, weight: .light, scale: .large)
+        
         if AppConstants.shared.favoriteVolumes.contains(where: {$0.id == volume?.id}) {
             favoriteButton.tintColor = .red
-            sfSymbol = "heart.fill"
+            sfSymbolName = "heart.fill"
         } else {
             favoriteButton.tintColor = .lightGray
-            sfSymbol = "heart.circle"
+            sfSymbolName = "heart.circle"
         }
         
-        let largeBoldDoc = UIImage(systemName: sfSymbol, withConfiguration: largeConfig)
-        favoriteButton.setImage(largeBoldDoc, for: .normal)
-        
+        let heartImage = UIImage(systemName: sfSymbolName, withConfiguration: heartButtonConfig)
+        favoriteButton.setImage(heartImage, for: .normal)
     }
     
     fileprivate func bindModelData() {
@@ -114,8 +124,7 @@ class VolumeDetailViewController: BaseViewController {
         }
         
         setupFavoriteButton()
-        
-        
+
         UserDefaults.standard.userVolumes = AppConstants.shared.favoriteVolumes
         
         let generator = UINotificationFeedbackGenerator()
@@ -126,6 +135,6 @@ class VolumeDetailViewController: BaseViewController {
     struct constants {
         static let buyTitle = "Comprar por" //localization
         static let noLinkMessage = "Não há link disponível"
-        static let favoriteButtonSize:CGFloat = 40
+        static let favoriteButtonSize:CGFloat = 50
     }
 }

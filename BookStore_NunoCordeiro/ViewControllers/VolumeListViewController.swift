@@ -17,7 +17,7 @@ class VolumeListViewController: BaseViewController {
     
     // MARK: Class variables and constants
     var isLoading = false
-    let reuseIdentifier = "cell"
+    
     let vm = VolumeViewModel()
         
     //MARK: - ViewController lifecycle
@@ -40,7 +40,7 @@ class VolumeListViewController: BaseViewController {
     
     fileprivate func setupUI() {
         let cellNib = UINib(nibName: String(describing: VolumeCollectionViewCell.self), bundle: .main)
-        collectionView.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(cellNib, forCellWithReuseIdentifier: constants.cellIdentifier)
                 
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 5
@@ -66,6 +66,8 @@ class VolumeListViewController: BaseViewController {
     //MARK: - Reusable local constants
     struct constants {
         static let inset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
+        static let cellIdentifier = "cell"
+        static let columnCount = AppConstants.isDeviceAnIpad ? 4.0 : 2.0
     }
 }
 
@@ -77,7 +79,7 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! VolumeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: constants.cellIdentifier, for: indexPath as IndexPath) as! VolumeCollectionViewCell
         if let currentVolumeInfo = vm.volumes[indexPath.item].volumeInfo {
             cell.configure(volumeInfo: currentVolumeInfo)
         }
@@ -95,11 +97,10 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let lay = collectionViewLayout as! UICollectionViewFlowLayout
-        let colCount = AppConstants.isDeviceAnIpad ? 4.0 : 2.0
-        let widthPerItem = collectionView.frame.width / colCount - lay.minimumInteritemSpacing
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width / constants.columnCount - layout.minimumInteritemSpacing
         
-        return CGSize(width:widthPerItem, height: widthPerItem * 1.6)
+        return CGSize(width:widthPerItem, height: widthPerItem * AppConstants.shared.goldenRatio)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
