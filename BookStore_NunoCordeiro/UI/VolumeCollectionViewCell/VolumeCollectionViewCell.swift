@@ -21,9 +21,11 @@ class VolumeCollectionViewCell: UICollectionViewCell {
     func configure(volumeInfo: VolumeInfo) {
         
         titleLabel.text = volumeInfo.title
+        titleLabel.textColor = .primary
         if let thumbnailURL = volumeInfo.imageLinks?.thumbnail {
             imageView.load(urlString: thumbnailURL)
         }
+        
         self.contentView.addDropShadow()
     }
 }

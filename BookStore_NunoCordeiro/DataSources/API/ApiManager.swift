@@ -11,11 +11,10 @@ class ApiManager {
     
     
     //MARK: Constants and shared values
-    private let baseURL = "https://www.googleapis.com/books/v1/"
+    private let baseURL = "https://www.googleapis.com/"
     
     enum Endpoint: String {
-        case getVolumes = "volumes"
-        case getVolumeDetails = ""
+        case getVolumes = "books/v1/volumes"
     }
     
     enum RequestType: String {
@@ -36,6 +35,8 @@ class ApiManager {
                                 urlParameters: [String:String] = [:]) async -> T? {
         
         var urlString = baseURL + endpoint.rawValue
+        
+        //  build queryString based on urlParameters
         var first = true
         for (key, value) in urlParameters {
             first ? urlString.append("?") : urlString.append("&")
@@ -44,13 +45,13 @@ class ApiManager {
         }
         
         guard let url = URL(string: urlString) else { return nil }
-        DLog(url.absoluteString)
+        
         do{
             let (data, _) = try await URLSession.shared.data(from: url, delegate: nil)
             let res = try JSONDecoder().decode(T.self, from:data, keyPath: "items")
             return res
         } catch {
-            
+            DLog(url.absoluteString)
             DLog(error)                         //  Sometimes gives additional clues on what went wrong
             DLog(error.localizedDescription)    //  More readable description on what went wrong
                                                 //  TODO: push error info to external log feature such as firebase / crashlytics or similar

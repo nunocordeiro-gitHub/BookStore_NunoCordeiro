@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A10DC2429E03399000B6DE1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10DC2329E03399000B6DE1 /* PrimaryButton.swift */; };
+		9A10DC2729E091FC000B6DE1 /* VolumeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10DC2629E091FC000B6DE1 /* VolumeViewModel.swift */; };
+		9A10DC2929E0C92E000B6DE1 /* UserDefaults+Volumes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10DC2829E0C92E000B6DE1 /* UserDefaults+Volumes.swift */; };
 		9A1DAE0529DCEE5100647654 /* VolumeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAE0329DCEE5100647654 /* VolumeCollectionViewCell.swift */; };
 		9A1DAE0629DCEE5100647654 /* VolumeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DAE0429DCEE5100647654 /* VolumeCollectionViewCell.xib */; };
 		9A5E2DF729DCA1DD0023AF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2DF629DCA1DD0023AF4D /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		9A10DC2329E03399000B6DE1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		9A10DC2629E091FC000B6DE1 /* VolumeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewModel.swift; sourceTree = "<group>"; };
+		9A10DC2829E0C92E000B6DE1 /* UserDefaults+Volumes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Volumes.swift"; sourceTree = "<group>"; };
 		9A1DAE0329DCEE5100647654 /* VolumeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A1DAE0429DCEE5100647654 /* VolumeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolumeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9A5E2DF329DCA1DD0023AF4D /* BookStore_NunoCordeiro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStore_NunoCordeiro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,31 @@
 			path = Subclasses;
 			sourceTree = "<group>";
 		};
+		9A10DC2A29E0C936000B6DE1 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				9A5E2E3129DCA3ED0023AF4D /* API */,
+				9A10DC2B29E0C949000B6DE1 /* UserDefaults */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		9A10DC2B29E0C949000B6DE1 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				9A10DC2829E0C92E000B6DE1 /* UserDefaults+Volumes.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		9A10DC2C29E0C996000B6DE1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9A10DC2629E091FC000B6DE1 /* VolumeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		9A1DAE0229DCEE1900647654 /* VolumeCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +178,9 @@
 				9A5E2E2629DCA2E50023AF4D /* BaseConfiguration */,
 				9A5E2E2829DCA3640023AF4D /* Extensions */,
 				9A10DC2529E0339F000B6DE1 /* Subclasses */,
-				9A5E2E3129DCA3ED0023AF4D /* API */,
+				9A10DC2A29E0C936000B6DE1 /* DataSources */,
 				9A5E2E3B29DCA79B0023AF4D /* Models */,
+				9A10DC2C29E0C996000B6DE1 /* ViewModels */,
 				9A5E2E2729DCA2F80023AF4D /* ViewControllers */,
 				9A5E2E3C29DCA7AD0023AF4D /* UI */,
 				9A5E2E0429DCA1DF0023AF4D /* Info.plist */,
@@ -378,12 +408,14 @@
 			files = (
 				9A5E2E2B29DCA3640023AF4D /* UIView.swift in Sources */,
 				9A5E2E3529DCA5BA0023AF4D /* AppConstants.swift in Sources */,
+				9A10DC2729E091FC000B6DE1 /* VolumeViewModel.swift in Sources */,
 				9A1DAE0529DCEE5100647654 /* VolumeCollectionViewCell.swift in Sources */,
 				9A5E2E3729DCA6690023AF4D /* ApiManager+Volumes.swift in Sources */,
 				9A5E2DF729DCA1DD0023AF4D /* AppDelegate.swift in Sources */,
 				9ABA62A029DCD8BD004EBCC7 /* JSONDecoder.swift in Sources */,
 				9A5E2DF929DCA1DD0023AF4D /* SceneDelegate.swift in Sources */,
 				9A10DC2429E03399000B6DE1 /* PrimaryButton.swift in Sources */,
+				9A10DC2929E0C92E000B6DE1 /* UserDefaults+Volumes.swift in Sources */,
 				9A5E2E3329DCA4E20023AF4D /* Globals.swift in Sources */,
 				9A5E2E2C29DCA3640023AF4D /* Encodable.swift in Sources */,
 				9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */,

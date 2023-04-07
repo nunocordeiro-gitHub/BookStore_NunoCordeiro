@@ -37,7 +37,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kGU-re-v1i">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kGU-re-v1i">
                                 <rect key="frame" x="316" y="757" width="49" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="flX-45-AEC"/>
@@ -76,6 +76,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="W7R-CQ-Kda" id="AaR-d8-JEq"/>
+                        <outlet property="listTypeSwitch" destination="kGU-re-v1i" id="URK-tD-qhk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnR-Tk-9wz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -90,14 +91,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVE-BC-VOW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVE-BC-VOW">
                                 <rect key="frame" x="30" y="79" width="333" height="24"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xPU-gn-JD1">
-                                <rect key="frame" x="80" y="132.99999999999997" width="233" height="300.33333333333326"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPU-gn-JD1">
+                                <rect key="frame" x="80" y="133" width="233" height="300.33333333333326"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xPU-gn-JD1" secondAttribute="height" multiplier="163:210" id="jeP-Pv-byc"/>
                                 </constraints>
@@ -113,8 +114,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author's Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-nF-sMy">
-                                <rect key="frame" x="154.66666666666666" y="441.33333333333331" width="84" height="14.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author's Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-nF-sMy">
+                                <rect key="frame" x="154.66666666666666" y="441.33333333333337" width="84" height="14.333333333333314"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -124,6 +125,15 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <connections>
                                     <action selector="buyButtonTapped:" destination="SbR-yl-8ha" eventType="touchUpInside" id="Ve1-M3-nlu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VZ-uF-2td">
+                                <rect key="frame" x="314" y="90" width="24" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="favoriteTapped:" destination="SbR-yl-8ha" eventType="touchUpInside" id="hZM-yc-5gG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -151,6 +161,7 @@
                         <outlet property="authorLabel" destination="hQT-nF-sMy" id="fWh-zv-gt3"/>
                         <outlet property="buyButton" destination="knI-GK-Hil" id="jyI-NP-yzC"/>
                         <outlet property="descriptionTextView" destination="wht-e0-Yl4" id="92g-nU-QFK"/>
+                        <outlet property="favoriteButton" destination="9VZ-uF-2td" id="n4i-TW-LlU"/>
                         <outlet property="textViewBottomConstraint" destination="hjz-Cz-oH7" id="TQ0-Fs-bbm"/>
                         <outlet property="thumbailImageView" destination="xPU-gn-JD1" id="yWM-nK-xA1"/>
                         <outlet property="titleLabel" destination="uVE-BC-VOW" id="XHq-nW-XsC"/>

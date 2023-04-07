@@ -16,6 +16,8 @@ class AppConstants {
     
     let AppName = "Bookstore"
     
+    var favoriteVolumes: [Volume] = UserDefaults.standard.userVolumes
+    
     static var isDeviceAnIpad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
@@ -24,3 +26,4 @@ class AppConstants {
         return AppConstants.isDeviceAnIpad ? "Main_iPad" : "Main"
     }
 }
+    

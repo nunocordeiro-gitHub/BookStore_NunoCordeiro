@@ -6,78 +6,60 @@
 //
 
 import UIKit
+import Foundation
 
 class VolumeListViewController: BaseViewController {
     
     
     // MARK: Interface Builder Outlets
+    @IBOutlet weak var listTypeSwitch: UISwitch!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: Class variables and constants
-    let reuseIdentifier = "cell"
-    var volumes: [Volume]?
     var isLoading = false
-    var startIndex = 0
-    
-    //MARK: ViewController lifecycle
+    let reuseIdentifier = "cell"
+    let vm = VolumeViewModel()
+        
+    //MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-        configure()
+        listTypeSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        vm.browseType = .apiFetch
+        setupUI()
+        
+        vm.loadData {
+            self.refreshCollectionView()
+        }
     }
-    
+
     
     //MARK: - Logics
     
-    func configure() {
-        
+    fileprivate func setupUI() {
         let cellNib = UINib(nibName: String(describing: VolumeCollectionViewCell.self), bundle: .main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        
+                
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = constants.inset.left * 2.0
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.backgroundColor = .secondary
-        
-        Task {
-            showLoader()
-            volumes = await ApiManager.shared.getVolumes(startIndex: 0)
-            collectionView.reloadData()
-            hideLoader()
+    }
+    
+    func refreshCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
     
-    func loadData() {
-        
-        DLog("load more")
-        
-        if !self.isLoading {
-            self.isLoading = true
-            
-            
-            
-            
-            //            DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) { // Remove the 1-second delay if you want to load the data without waiting
-            
-            Task {
-                if let newPageVolumes = await ApiManager.shared.getVolumes(startIndex: startIndex) {
-                    volumes?.append(contentsOf: newPageVolumes)
-                    startIndex += ApiManager.constants.volumesFetchPageSize
-                    
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                        self.isLoading = false
-                        
-                    }
-                }
-            }
-            
-            
-            
-            //          }
+    @objc func switchChanged(mySwitch: UISwitch) {
+        vm.resetVolumesList()
+        vm.browseType = mySwitch.isOn ? .favorites : .apiFetch        
+        vm.loadData {
+            self.refreshCollectionView()
         }
     }
     
@@ -87,16 +69,16 @@ class VolumeListViewController: BaseViewController {
     }
 }
 
-
+//MARK: - Collectionview Delegation Stubs
 extension VolumeListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return volumes?.count ?? 0
+        return vm.volumes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! VolumeCollectionViewCell
-        if let currentVolumeInfo = volumes?[indexPath.item].volumeInfo {
+        if let currentVolumeInfo = vm.volumes[indexPath.item].volumeInfo {
             cell.configure(volumeInfo: currentVolumeInfo)
         }
         return cell
@@ -104,7 +86,7 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = VolumeDetailViewController.instantiate()
-        vc.volume = volumes?[indexPath.item]
+        vc.volume = vm.volumes[indexPath.item]
         present(vc, animated: true)
     }
     
@@ -122,10 +104,12 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        guard let datasourceCount = volumes?.count else { return }
-        
-        if indexPath.item == datasourceCount - ApiManager.constants.volumesFetchPageSize, !isLoading {
-            loadData()
+        if indexPath.item == vm.volumes.count - 10,
+           isLoading == false,
+           vm.browseType == .apiFetch {
+            vm.loadData {
+                self.refreshCollectionView()
+            }
         }
     }
 }
