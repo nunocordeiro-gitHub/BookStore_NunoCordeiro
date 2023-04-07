@@ -21,10 +21,9 @@ class VolumeCollectionViewCell: UICollectionViewCell {
     func configure(volumeInfo: VolumeInfo) {
         
         titleLabel.text = volumeInfo.title
-        if let thumbnailURL = volumeInfo.imageLinks?.smallThumbnail {
+        if let thumbnailURL = volumeInfo.imageLinks?.thumbnail {
             imageView.load(urlString: thumbnailURL)
         }
         self.contentView.addDropShadow()
-        self.clipsToBounds = false
     }
 }

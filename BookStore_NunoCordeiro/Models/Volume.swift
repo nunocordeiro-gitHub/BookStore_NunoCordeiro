@@ -11,8 +11,8 @@ import Foundation
 // MARK: - Welcome
 struct Volume: Codable {
     let id: String
-    let volumeInfo: VolumeInfo
-    let saleInfo: SaleInfo
+    let volumeInfo: VolumeInfo?
+    let saleInfo: SaleInfo?
     
 //      Uncomment as needed on future releases
 //    let kind, etag: String?

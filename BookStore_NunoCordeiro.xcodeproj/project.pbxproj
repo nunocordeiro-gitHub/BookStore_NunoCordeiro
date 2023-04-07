@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A10DC2429E03399000B6DE1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A10DC2329E03399000B6DE1 /* PrimaryButton.swift */; };
 		9A1DAE0529DCEE5100647654 /* VolumeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1DAE0329DCEE5100647654 /* VolumeCollectionViewCell.swift */; };
 		9A1DAE0629DCEE5100647654 /* VolumeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DAE0429DCEE5100647654 /* VolumeCollectionViewCell.xib */; };
 		9A5E2DF729DCA1DD0023AF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2DF629DCA1DD0023AF4D /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */; };
 		9ABA62A029DCD8BD004EBCC7 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */; };
 		9ABA62A229DCDC68004EBCC7 /* VolumeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */; };
+		9AE5CFA229E0285100F0E1C5 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5CFA129E0285100F0E1C5 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A10DC2329E03399000B6DE1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		9A1DAE0329DCEE5100647654 /* VolumeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A1DAE0429DCEE5100647654 /* VolumeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolumeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9A5E2DF329DCA1DD0023AF4D /* BookStore_NunoCordeiro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookStore_NunoCordeiro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +78,7 @@
 		9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Caching.swift"; sourceTree = "<group>"; };
 		9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeDetailViewController.swift; sourceTree = "<group>"; };
+		9AE5CFA129E0285100F0E1C5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A10DC2529E0339F000B6DE1 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				9A10DC2329E03399000B6DE1 /* PrimaryButton.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		9A1DAE0229DCEE1900647654 /* VolumeCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 			children = (
 				9A5E2E2629DCA2E50023AF4D /* BaseConfiguration */,
 				9A5E2E2829DCA3640023AF4D /* Extensions */,
+				9A10DC2529E0339F000B6DE1 /* Subclasses */,
 				9A5E2E3129DCA3ED0023AF4D /* API */,
 				9A5E2E3B29DCA79B0023AF4D /* Models */,
 				9A5E2E2729DCA2F80023AF4D /* ViewControllers */,
@@ -190,6 +203,7 @@
 				9A5E2E2A29DCA3640023AF4D /* Encodable.swift */,
 				9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */,
 				9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */,
+				9AE5CFA129E0285100F0E1C5 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -369,10 +383,12 @@
 				9A5E2DF729DCA1DD0023AF4D /* AppDelegate.swift in Sources */,
 				9ABA62A029DCD8BD004EBCC7 /* JSONDecoder.swift in Sources */,
 				9A5E2DF929DCA1DD0023AF4D /* SceneDelegate.swift in Sources */,
+				9A10DC2429E03399000B6DE1 /* PrimaryButton.swift in Sources */,
 				9A5E2E3329DCA4E20023AF4D /* Globals.swift in Sources */,
 				9A5E2E2C29DCA3640023AF4D /* Encodable.swift in Sources */,
 				9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */,
 				9A5E2E3E29DCAC120023AF4D /* VolumeListViewController.swift in Sources */,
+				9AE5CFA229E0285100F0E1C5 /* UIColor+Extensions.swift in Sources */,
 				9ABA62A229DCDC68004EBCC7 /* VolumeDetailViewController.swift in Sources */,
 				9A5E2E3A29DCA78A0023AF4D /* Volume.swift in Sources */,
 				9A5E2E2E29DCA3860023AF4D /* BaseViewController.swift in Sources */,

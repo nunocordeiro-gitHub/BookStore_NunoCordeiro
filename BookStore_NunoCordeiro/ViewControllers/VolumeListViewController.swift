@@ -40,7 +40,7 @@ class VolumeListViewController: BaseViewController {
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = constants.inset.left * 2.0
         collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.backgroundColor = AppConstants.Colors.secondaryColor
+        collectionView.backgroundColor = .secondary
         
         Task {
             showLoader()

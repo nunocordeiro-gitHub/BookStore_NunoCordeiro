@@ -20,15 +20,6 @@ class AppConstants {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    public struct Colors {
-        static let secondaryColor: UIColor = UIColor(named: "secondaryColor") ?? UIColor.systemBackground
-    }
-    
-    public struct Fonts {
-        static let largeTitleFont: UIFont = UIFont(name: "Georgia", size: 40)!
-        static let secondaryFont = UIFont(name: "Trebuchet MS", size: 18)
-    }
- 
     var mainStoryboardName: String {
         return AppConstants.isDeviceAnIpad ? "Main_iPad" : "Main"
     }

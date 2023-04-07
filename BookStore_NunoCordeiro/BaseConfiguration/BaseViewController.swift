@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white // UIColor(named: "background")
+        //self.view.backgroundColor = .white // UIColor(named: "background")
         // Do any additional setup after loading the view.
     }
     //MARK: General UI Features
