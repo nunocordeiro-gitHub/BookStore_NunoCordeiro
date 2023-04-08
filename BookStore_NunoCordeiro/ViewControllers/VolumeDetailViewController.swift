@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol VolumeDetailDelegate {
+    func didChangeFavorite()
+}
+
 class VolumeDetailViewController: BaseViewController {
     
     
@@ -25,6 +29,7 @@ class VolumeDetailViewController: BaseViewController {
     // MARK: - ViewController wide constants and variables
     var volume: Volume?
     var buyUrl: String?
+    var delegate: VolumeDetailDelegate?
     
     //TODO: emptyState?
     
@@ -75,18 +80,17 @@ class VolumeDetailViewController: BaseViewController {
     
     fileprivate func setupFavoriteButton() {
         
-        let sfSymbolName: String
+        let heartImage: UIImage
         let heartButtonConfig = UIImage.SymbolConfiguration(pointSize: constants.favoriteButtonSize, weight: .light, scale: .large)
         
         if AppConstants.shared.favoriteVolumes.contains(where: {$0.id == volume?.id}) {
-            favoriteButton.tintColor = .red
-            sfSymbolName = "heart.fill"
+            favoriteButton.tintColor = .heartColor
+            heartImage = UIImage(systemName: "heart.circle.fill", withConfiguration: heartButtonConfig)!.withRenderingMode(.alwaysOriginal)
         } else {
             favoriteButton.tintColor = .lightGray
-            sfSymbolName = "heart.circle"
+            heartImage = UIImage(systemName: "heart.circle", withConfiguration: heartButtonConfig)!
         }
         
-        let heartImage = UIImage(systemName: sfSymbolName, withConfiguration: heartButtonConfig)
         favoriteButton.setImage(heartImage, for: .normal)
     }
     
@@ -136,6 +140,7 @@ class VolumeDetailViewController: BaseViewController {
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+        delegate?.didChangeFavorite()
     }
     
     // MARK: - ViewController constants

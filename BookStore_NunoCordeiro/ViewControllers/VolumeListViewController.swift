@@ -71,6 +71,7 @@ class VolumeListViewController: BaseViewController {
         static let inset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
         static let cellIdentifier = "cell"
         static let columnCount = AppConstants.isDeviceAnIpad ? 4.0 : 2.0
+        static let reloadBuffer = 10    //number of elements before being presented to start downloading more
     }
 }
 
@@ -92,6 +93,7 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = VolumeDetailViewController.instantiate()
         vc.volume = vm.volumes[indexPath.item]
+        vc.delegate = self
         present(vc, animated: true)
     }
     
@@ -108,14 +110,20 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if indexPath.item == vm.volumes.count - 10,
+        if indexPath.item == vm.volumes.count - constants.reloadBuffer,
            isLoading == false,
            vm.browseType == .apiFetch {
-            showLoader()
             vm.loadData {
-                self.hideLoader()
                 self.refreshCollectionView()
             }
+        }
+    }
+}
+
+extension VolumeListViewController: VolumeDetailDelegate {
+    func didChangeFavorite() {
+        vm.loadData {
+            self.refreshCollectionView()
         }
     }
 }
