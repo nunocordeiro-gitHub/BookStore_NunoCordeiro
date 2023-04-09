@@ -45,13 +45,13 @@ class ApiManager {
         }
         
         guard let url = URL(string: urlString) else { return nil }
-        
+        DLog(url.absoluteString)
         do{
             let (data, _) = try await URLSession.shared.data(from: url, delegate: nil)
             let res = try JSONDecoder().decode(T.self, from:data, keyPath: "items")
             return res
         } catch {
-            DLog(url.absoluteString)
+            
             DLog(error)                         //  Sometimes gives additional clues on what went wrong
             DLog(error.localizedDescription)    //  More readable description on what went wrong
                                                 //  TODO: push error info to external log feature such as firebase / crashlytics or similar

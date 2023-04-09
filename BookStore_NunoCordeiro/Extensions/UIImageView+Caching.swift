@@ -15,7 +15,9 @@ extension UIImageView {
     /// - Parameter urlString: Image Uri to be rendered and cached
     func load(urlString: String) {
         if let image = imageCache.object(forKey: urlString as NSString) {
-            self.image = image
+            DispatchQueue.main.async {
+                self.image = image
+            }
             return
         }
         

@@ -30,6 +30,7 @@
 		9A5E2E3A29DCA78A0023AF4D /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3929DCA78A0023AF4D /* Volume.swift */; };
 		9A5E2E3E29DCAC120023AF4D /* VolumeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3D29DCAC120023AF4D /* VolumeListViewController.swift */; };
 		9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */; };
+		9A93E21829E36E2400B5F728 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A93E21729E36E2400B5F728 /* BaseViewModel.swift */; };
 		9ABA62A029DCD8BD004EBCC7 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */; };
 		9ABA62A229DCDC68004EBCC7 /* VolumeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */; };
 		9AE5CFA229E0285100F0E1C5 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5CFA129E0285100F0E1C5 /* UIColor+Extensions.swift */; };
@@ -80,6 +81,7 @@
 		9A5E2E3929DCA78A0023AF4D /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		9A5E2E3D29DCAC120023AF4D /* VolumeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeListViewController.swift; sourceTree = "<group>"; };
 		9A82C75129DDB60400AF4F86 /* UIImageView+Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Caching.swift"; sourceTree = "<group>"; };
+		9A93E21729E36E2400B5F728 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9ABA629F29DCD8BD004EBCC7 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeDetailViewController.swift; sourceTree = "<group>"; };
 		9AE5CFA129E0285100F0E1C5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		9A10DC2C29E0C996000B6DE1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9A93E21729E36E2400B5F728 /* BaseViewModel.swift */,
 				9A10DC2629E091FC000B6DE1 /* VolumeViewModel.swift */,
 			);
 			path = ViewModels;
@@ -416,6 +419,7 @@
 				9A5E2DF929DCA1DD0023AF4D /* SceneDelegate.swift in Sources */,
 				9A10DC2429E03399000B6DE1 /* PrimaryButton.swift in Sources */,
 				9A10DC2929E0C92E000B6DE1 /* UserDefaults+Volumes.swift in Sources */,
+				9A93E21829E36E2400B5F728 /* BaseViewModel.swift in Sources */,
 				9A5E2E3329DCA4E20023AF4D /* Globals.swift in Sources */,
 				9A5E2E2C29DCA3640023AF4D /* Encodable.swift in Sources */,
 				9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */,

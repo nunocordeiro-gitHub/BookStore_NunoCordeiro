@@ -11,13 +11,9 @@ class BaseViewController: UIViewController {
     
     private var loaderView: UIView = UIView()
     let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    var viewModel: BaseViewModel! = nil
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        //self.view.backgroundColor = .white // UIColor(named: "background")
-        // Do any additional setup after loading the view.
-    }
+    
     //MARK: General UI Features
     
     func showLoader() {
@@ -26,6 +22,7 @@ class BaseViewController: UIViewController {
         loaderView.backgroundColor = .black
         loaderView.alpha = 0.5
         spinner.transform = CGAffineTransform(scaleX: 2, y: 2)
+        spinner.color = .primary
 
         
         DispatchQueue.main.async {
@@ -75,6 +72,12 @@ class BaseViewController: UIViewController {
     static func instantiate() -> Self {
         
         let vc = UIStoryboard.init(name: AppConstants.shared.mainStoryboardName, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: self.classForCoder())) as! Self
+        return vc
+    }
+    
+    static func instatiate(viewModel: BaseViewModel) -> Self    {
+        let vc  = self.instantiate()
+        vc.viewModel = viewModel
         return vc
     }
 }

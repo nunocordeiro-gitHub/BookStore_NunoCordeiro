@@ -11,38 +11,41 @@ import Foundation
 class VolumeListViewController: BaseViewController {
     
     
-    // MARK: Interface Builder Outlets
-    @IBOutlet weak var listTypeSwitch: UISwitch!
+    //  MARK: Interface Builder Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // MARK: Class variables and constants
-    var isLoading = false
+    //  MARK: Class variables and constants
+    var collectionViewFirstLoad = false
     
-    let vm = VolumeViewModel()
-        
-    //MARK: - ViewController lifecycle
+    //represents the viewModel for the current VC. returs the VM that was injected durint instantiation
+    var vm: VolumeViewModel {
+        return viewModel as! VolumeViewModel
+    }
+    
+    //  MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        listTypeSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
-        vm.browseType = .apiFetch
+        collectionViewFirstLoad = true
+        
         setupUI()
         showLoader()
         vm.loadData {
             self.hideLoader()
             self.refreshCollectionView()
+            self.collectionViewFirstLoad = false
         }
     }
 
     
-    //MARK: - Logics
+    //  MARK: - Logics
     
     fileprivate func setupUI() {
         let cellNib = UINib(nibName: String(describing: VolumeCollectionViewCell.self), bundle: .main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: constants.cellIdentifier)
-                
+        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = constants.inset.left * 2.0
@@ -53,16 +56,6 @@ class VolumeListViewController: BaseViewController {
     func refreshCollectionView() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
-        }
-    }
-    
-    @objc func switchChanged(mySwitch: UISwitch) {
-        vm.resetVolumesList()
-        vm.browseType = mySwitch.isOn ? .favorites : .apiFetch
-        showLoader()
-        vm.loadData {
-            self.hideLoader()
-            self.refreshCollectionView()
         }
     }
     
@@ -111,7 +104,7 @@ extension VolumeListViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if indexPath.item == vm.volumes.count - constants.reloadBuffer,
-           isLoading == false,
+           !collectionViewFirstLoad,
            vm.browseType == .apiFetch {
             vm.loadData {
                 self.refreshCollectionView()

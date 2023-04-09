@@ -22,9 +22,18 @@ class PrimaryButton: UIButton {
     private func setup() {
         backgroundColor = .primary
         setTitleColor(.secondary, for: .normal)
-        contentEdgeInsets = UIEdgeInsets(top: 8, left: 20, bottom: 8, right: 20)
-        layer.cornerRadius = bounds.height / 2.0 - contentEdgeInsets.top / 2.0
+        
+        var configuration = UIButton.Configuration.filled()
+        
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 20, bottom:8, trailing: 20)
+        configuration.baseBackgroundColor = .primary
+        
+        configuration.cornerStyle = .capsule
+        self.configuration = configuration
+        layer.cornerCurve = .continuous
+        layer.cornerRadius = self.bounds.height / 2
         
     }
+    
 }
 
