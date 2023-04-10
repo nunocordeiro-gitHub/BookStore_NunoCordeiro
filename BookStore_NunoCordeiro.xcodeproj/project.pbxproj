@@ -87,7 +87,7 @@
 		9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeDetailViewController.swift; sourceTree = "<group>"; };
 		9AE5CFA129E0285100F0E1C5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9AF0BCB929E394C30054D0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9AF0BCBB29E394DA0054D0F1 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9AF0BCBD29E3988A0054D0F1 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,7 +391,7 @@
 			knownRegions = (
 				en,
 				Base,
-				"pt-PT",
+				pt,
 			);
 			mainGroup = 9A5E2DEA29DCA1DD0023AF4D;
 			productRefGroup = 9A5E2DF429DCA1DD0023AF4D /* Products */;
@@ -515,7 +515,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9AF0BCB929E394C30054D0F1 /* en */,
-				9AF0BCBB29E394DA0054D0F1 /* pt-PT */,
+				9AF0BCBD29E3988A0054D0F1 /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
