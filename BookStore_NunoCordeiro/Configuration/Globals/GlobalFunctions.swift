@@ -21,4 +21,7 @@ func DLog(_ items: Any...) {
 #endif
 }
 
+public func NSLocalizedString(_ key: String) -> String {
+    return NSLocalizedString(key, comment: "")
+}
 

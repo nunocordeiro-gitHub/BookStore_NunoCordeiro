@@ -17,11 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             tabBarController.tabBar.tintColor = .primary
             
             let vcBrowse = VolumeListViewController.instatiate(viewModel: VolumeViewModel(browseType: .apiFetch))
-            vcBrowse.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(systemName: "books.vertical"), tag: 0)
+            
+            vcBrowse.tabBarItem = UITabBarItem(title: localizedTerms.browse,
+                                               image: UIImage(systemName: systemImages.books),
+                                               tag: 0)
 
             
             let vcFavorites = VolumeListViewController.instatiate(viewModel: VolumeViewModel(browseType: .favorites))
-            vcFavorites.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), tag: 0)
+            vcFavorites.tabBarItem = UITabBarItem(title: localizedTerms.favorites, image: UIImage(systemName: systemImages.heart), tag: 0)
 
 
             tabBarController.setViewControllers([vcBrowse, vcFavorites], animated: false)
@@ -59,5 +62,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+    struct localizedTerms {
+        static var favorites = NSLocalizedString("Favorites")
+        static var browse = NSLocalizedString("Browse")
+    }
+    
+    struct systemImages {
+        static let heart = "heart"
+        static let books = "books.vertical"
+    }
 }
-
