@@ -144,8 +144,8 @@ class VolumeDetailViewController: BaseViewController {
     
     // MARK: - ViewController constants
     struct constants {
-        static let buyTitle = "Buy"
-        static let noLinkMessage = "Unavailable link"
+        static let buyTitle = NSLocalizedString("Buy")
+        static let noLinkMessage = NSLocalizedString("Unavailable link")
         static let favoriteButtonSize:CGFloat = 50
     }
     
