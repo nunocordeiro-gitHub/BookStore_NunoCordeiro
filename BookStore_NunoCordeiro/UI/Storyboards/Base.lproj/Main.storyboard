@@ -38,23 +38,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-cL-bqO">
-                                <rect key="frame" x="0.0" y="754" width="393" height="64"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="vb9-Rj-f7G"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NgQ-ig-Cjb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W7R-CQ-Kda" firstAttribute="top" secondItem="NgQ-ig-Cjb" secondAttribute="top" id="dTX-AA-nhe"/>
                             <constraint firstItem="W7R-CQ-Kda" firstAttribute="leading" secondItem="NgQ-ig-Cjb" secondAttribute="leading" id="fOd-DM-Fg2"/>
-                            <constraint firstItem="mvn-cL-bqO" firstAttribute="trailing" secondItem="NgQ-ig-Cjb" secondAttribute="trailing" id="gGr-7T-8eH"/>
-                            <constraint firstItem="NgQ-ig-Cjb" firstAttribute="bottom" secondItem="W7R-CQ-Kda" secondAttribute="bottom" id="sxJ-jZ-WuK"/>
-                            <constraint firstItem="NgQ-ig-Cjb" firstAttribute="bottom" secondItem="mvn-cL-bqO" secondAttribute="bottom" id="tm2-eC-hJI"/>
-                            <constraint firstItem="mvn-cL-bqO" firstAttribute="leading" secondItem="NgQ-ig-Cjb" secondAttribute="leading" id="wvO-IU-CGJ"/>
+                            <constraint firstItem="W7R-CQ-Kda" firstAttribute="bottom" secondItem="NgQ-ig-Cjb" secondAttribute="bottom" id="vCd-48-eTb"/>
                             <constraint firstItem="NgQ-ig-Cjb" firstAttribute="trailing" secondItem="W7R-CQ-Kda" secondAttribute="trailing" id="z2S-wh-SNJ"/>
                         </constraints>
                     </view>
@@ -65,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnR-Tk-9wz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1978" y="63"/>
+            <point key="canvasLocation" x="1977.8625954198471" y="62.676056338028175"/>
         </scene>
         <!--Volume Detail View Controller-->
         <scene sceneID="1QR-oX-qtv">

@@ -13,11 +13,8 @@ class VolumeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    @IBOutlet weak var favImageView: UIImageView!
+    
     func configure(volumeInfo: VolumeInfo) {
         
         titleLabel.text = volumeInfo.title
@@ -25,7 +22,11 @@ class VolumeCollectionViewCell: UICollectionViewCell {
         if let thumbnailURL = volumeInfo.imageLinks?.thumbnail {
             imageView.load(urlString: thumbnailURL)
         }
-        
         self.contentView.addDropShadow()
+        favImageView.isHidden = !AppConstants.shared.favoriteVolumes.contains(where: {$0.volumeInfo?.title == volumeInfo.title})
+        let heartImage = UIImage(systemName: "heart.circle.fill")!.withRenderingMode(.alwaysOriginal)
+        favImageView.image = heartImage
+        
+        
     }
 }

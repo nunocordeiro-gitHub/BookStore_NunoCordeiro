@@ -24,7 +24,7 @@
 		9A5E2E2C29DCA3640023AF4D /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E2A29DCA3640023AF4D /* Encodable.swift */; };
 		9A5E2E2E29DCA3860023AF4D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E2D29DCA3860023AF4D /* BaseViewController.swift */; };
 		9A5E2E3029DCA3E70023AF4D /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E2F29DCA3E70023AF4D /* ApiManager.swift */; };
-		9A5E2E3329DCA4E20023AF4D /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3229DCA4E20023AF4D /* Globals.swift */; };
+		9A5E2E3329DCA4E20023AF4D /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3229DCA4E20023AF4D /* GlobalFunctions.swift */; };
 		9A5E2E3529DCA5BA0023AF4D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3429DCA5BA0023AF4D /* AppConstants.swift */; };
 		9A5E2E3729DCA6690023AF4D /* ApiManager+Volumes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3629DCA6690023AF4D /* ApiManager+Volumes.swift */; };
 		9A5E2E3A29DCA78A0023AF4D /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E2E3929DCA78A0023AF4D /* Volume.swift */; };
@@ -75,7 +75,7 @@
 		9A5E2E2A29DCA3640023AF4D /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		9A5E2E2D29DCA3860023AF4D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9A5E2E2F29DCA3E70023AF4D /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
-		9A5E2E3229DCA4E20023AF4D /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		9A5E2E3229DCA4E20023AF4D /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		9A5E2E3429DCA5BA0023AF4D /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		9A5E2E3629DCA6690023AF4D /* ApiManager+Volumes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiManager+Volumes.swift"; sourceTree = "<group>"; };
 		9A5E2E3929DCA78A0023AF4D /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		9A5E2DF529DCA1DD0023AF4D /* BookStore_NunoCordeiro */ = {
 			isa = PBXGroup;
 			children = (
-				9A5E2E2629DCA2E50023AF4D /* BaseConfiguration */,
+				9A5E2E2629DCA2E50023AF4D /* Configuration */,
 				9A5E2E2829DCA3640023AF4D /* Extensions */,
 				9A10DC2529E0339F000B6DE1 /* Subclasses */,
 				9A10DC2A29E0C936000B6DE1 /* DataSources */,
@@ -208,21 +208,19 @@
 			path = BookStore_NunoCordeiroUITests;
 			sourceTree = "<group>";
 		};
-		9A5E2E2629DCA2E50023AF4D /* BaseConfiguration */ = {
+		9A5E2E2629DCA2E50023AF4D /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				9A5E2E3429DCA5BA0023AF4D /* AppConstants.swift */,
-				9A5E2E3229DCA4E20023AF4D /* Globals.swift */,
-				9A5E2E2D29DCA3860023AF4D /* BaseViewController.swift */,
-				9A5E2DF629DCA1DD0023AF4D /* AppDelegate.swift */,
-				9A5E2DF829DCA1DD0023AF4D /* SceneDelegate.swift */,
+				9A93E21A29E379BB00B5F728 /* Globals */,
+				9A93E21929E3791C00B5F728 /* AppLifecycle */,
 			);
-			path = BaseConfiguration;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		9A5E2E2729DCA2F80023AF4D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A5E2E2D29DCA3860023AF4D /* BaseViewController.swift */,
 				9A5E2E3D29DCAC120023AF4D /* VolumeListViewController.swift */,
 				9ABA62A129DCDC68004EBCC7 /* VolumeDetailViewController.swift */,
 			);
@@ -275,6 +273,24 @@
 				9A5E2DFF29DCA1DF0023AF4D /* Assets.xcassets */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		9A93E21929E3791C00B5F728 /* AppLifecycle */ = {
+			isa = PBXGroup;
+			children = (
+				9A5E2DF629DCA1DD0023AF4D /* AppDelegate.swift */,
+				9A5E2DF829DCA1DD0023AF4D /* SceneDelegate.swift */,
+			);
+			path = AppLifecycle;
+			sourceTree = "<group>";
+		};
+		9A93E21A29E379BB00B5F728 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				9A5E2E3429DCA5BA0023AF4D /* AppConstants.swift */,
+				9A5E2E3229DCA4E20023AF4D /* GlobalFunctions.swift */,
+			);
+			path = Globals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,7 +436,7 @@
 				9A10DC2429E03399000B6DE1 /* PrimaryButton.swift in Sources */,
 				9A10DC2929E0C92E000B6DE1 /* UserDefaults+Volumes.swift in Sources */,
 				9A93E21829E36E2400B5F728 /* BaseViewModel.swift in Sources */,
-				9A5E2E3329DCA4E20023AF4D /* Globals.swift in Sources */,
+				9A5E2E3329DCA4E20023AF4D /* GlobalFunctions.swift in Sources */,
 				9A5E2E2C29DCA3640023AF4D /* Encodable.swift in Sources */,
 				9A82C75229DDB60400AF4F86 /* UIImageView+Caching.swift in Sources */,
 				9A5E2E3E29DCAC120023AF4D /* VolumeListViewController.swift in Sources */,

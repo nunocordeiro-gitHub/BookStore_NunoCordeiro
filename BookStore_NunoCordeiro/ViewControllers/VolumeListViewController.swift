@@ -17,7 +17,7 @@ class VolumeListViewController: BaseViewController {
     //  MARK: Class variables and constants
     var collectionViewFirstLoad = false
     
-    //represents the viewModel for the current VC. returs the VM that was injected durint instantiation
+    //represents the viewModel for the current VC. returs the VM that was injected during instantiation
     var vm: VolumeViewModel {
         return viewModel as! VolumeViewModel
     }
@@ -31,6 +31,10 @@ class VolumeListViewController: BaseViewController {
         collectionViewFirstLoad = true
         
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         showLoader()
         vm.loadData {
             self.hideLoader()
@@ -38,7 +42,6 @@ class VolumeListViewController: BaseViewController {
             self.collectionViewFirstLoad = false
         }
     }
-
     
     //  MARK: - Logics
     
@@ -51,6 +54,11 @@ class VolumeListViewController: BaseViewController {
         layout.minimumInteritemSpacing = constants.inset.left * 2.0
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.backgroundColor = .secondary
+        
+        
+
+        
+        
     }
     
     func refreshCollectionView() {

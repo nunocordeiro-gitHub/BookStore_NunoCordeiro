@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 //NC - consider renaming to print and override original print
 func DLog(_ items: Any) {

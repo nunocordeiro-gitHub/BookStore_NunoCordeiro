@@ -24,15 +24,12 @@ class BaseViewController: UIViewController {
         spinner.transform = CGAffineTransform(scaleX: 2, y: 2)
         spinner.color = .primary
 
-        
         DispatchQueue.main.async {
-            
             self.spinner.startAnimating()
             self.view.addSubview(self.loaderView)
             self.spinner.center = self.view.center
             self.view.insertSubview(self.spinner, aboveSubview: self.loaderView)
         }
-        
     }
     
     func hideLoader() {
@@ -40,7 +37,6 @@ class BaseViewController: UIViewController {
             self.loaderView.removeFromSuperview()
             self.spinner.removeFromSuperview()
         }
-        
     }
 
     

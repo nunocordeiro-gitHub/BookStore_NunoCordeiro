@@ -9,9 +9,9 @@ import Foundation
 
 
 extension ApiManager {
-    /// <#Description#>
-    /// - Parameter startIndex: volume to start
-    /// - Returns: Array of parsed volumes
+    /// Fetches Google Books API
+    /// - Parameter startIndex: first volume index
+    /// - Returns: Array of parsed volumes. Array size (maximum) defined on ``constants/volumesFetchPageSize``
     func getVolumes(startIndex: Int) async -> [Volume]? {
         
         let params = ["q": "ios",

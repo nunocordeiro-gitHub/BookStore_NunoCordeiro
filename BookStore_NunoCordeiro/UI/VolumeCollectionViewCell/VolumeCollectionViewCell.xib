@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,11 +30,21 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="wJh-Ox-aoK">
                                 <rect key="frame" x="0.0" y="0.0" width="126" height="142"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vmJ-Ko-0VC">
+                                <rect key="frame" x="86" y="8.9999999999999982" width="32" height="30.666666666666664"/>
+                                <color key="tintColor" name="heartColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="4hZ-HW-5ni"/>
+                                    <constraint firstAttribute="height" constant="32" id="YmM-oo-T6j"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vmJ-Ko-0VC" secondAttribute="trailing" constant="8" id="1HG-LV-CTb"/>
                             <constraint firstAttribute="trailing" secondItem="b9o-CT-8aB" secondAttribute="trailing" constant="4" id="2hf-rV-qJB"/>
                             <constraint firstItem="wJh-Ox-aoK" firstAttribute="leading" secondItem="z3I-Hf-FQa" secondAttribute="leading" id="7ne-GI-gy2"/>
+                            <constraint firstItem="vmJ-Ko-0VC" firstAttribute="top" secondItem="z3I-Hf-FQa" secondAttribute="top" constant="8" id="AkE-H5-DXY"/>
                             <constraint firstItem="wJh-Ox-aoK" firstAttribute="top" secondItem="z3I-Hf-FQa" secondAttribute="top" id="ApT-mV-tH8"/>
                             <constraint firstAttribute="bottom" secondItem="b9o-CT-8aB" secondAttribute="bottom" constant="8" id="Idi-1I-6Ah"/>
                             <constraint firstItem="b9o-CT-8aB" firstAttribute="leading" secondItem="z3I-Hf-FQa" secondAttribute="leading" constant="4" id="S5J-Jq-xU8"/>
@@ -52,6 +63,7 @@
             </constraints>
             <size key="customSize" width="130" height="189"/>
             <connections>
+                <outlet property="favImageView" destination="vmJ-Ko-0VC" id="tu6-hi-MON"/>
                 <outlet property="imageView" destination="wJh-Ox-aoK" id="xdu-t4-cxi"/>
                 <outlet property="titleLabel" destination="b9o-CT-8aB" id="7BZ-iR-s8O"/>
             </connections>
@@ -59,7 +71,11 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart.circle" catalog="system" width="128" height="123"/>
         <image name="logo" width="1182" height="1182"/>
+        <namedColor name="heartColor">
+            <color red="0.73299998044967651" green="0.17700000107288361" blue="0.094999998807907104" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
