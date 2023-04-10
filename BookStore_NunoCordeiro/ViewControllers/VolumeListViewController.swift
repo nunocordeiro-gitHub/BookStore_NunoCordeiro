@@ -11,6 +11,8 @@ import Foundation
 class VolumeListViewController: BaseViewController {
     
     
+    //TODO: EmptyState
+    
     //  MARK: Interface Builder Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -54,11 +56,6 @@ class VolumeListViewController: BaseViewController {
         layout.minimumInteritemSpacing = constants.inset.left * 2.0
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.backgroundColor = .secondary
-        
-        
-
-        
-        
     }
     
     func refreshCollectionView() {
@@ -67,7 +64,7 @@ class VolumeListViewController: BaseViewController {
         }
     }
     
-    //MARK: - Reusable local constants
+    //  MARK: - Reusable local constants
     struct constants {
         static let inset = UIEdgeInsets(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
         static let cellIdentifier = "cell"
@@ -76,7 +73,7 @@ class VolumeListViewController: BaseViewController {
     }
 }
 
-//MARK: - Collectionview Delegation Stubs
+    //  MARK: - Collectionview Delegation Stubs
 extension VolumeListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

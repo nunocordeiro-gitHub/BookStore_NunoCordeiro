@@ -31,7 +31,6 @@ class VolumeDetailViewController: BaseViewController {
     var buyUrl: String?
     var delegate: VolumeDetailDelegate?
     
-    //TODO: emptyState?
     
     // MARK: - ViewController Lifecycle
     
@@ -69,7 +68,7 @@ class VolumeDetailViewController: BaseViewController {
             
             if let finalPrice = volume?.saleInfo?.listPrice?.amount ?? volume?.saleInfo?.retailPrice?.amount,
                let currencyCode = volume?.saleInfo?.retailPrice?.currencyCode {
-                buyTitle = "\(buyTitle) \(finalPrice) \(currencyCode)"
+                buyTitle = "\(buyTitle) (\(finalPrice) \(currencyCode))"
             }
             buyButton.setTitle(buyTitle , for: .normal)
         } else {
@@ -80,15 +79,15 @@ class VolumeDetailViewController: BaseViewController {
     
     fileprivate func setupFavoriteButton() {
         
+        //TODO: Create a HeartButton as a subclass of UIButton. Eventually play around with state as computed property to automatically perform UI updates
         let heartImage: UIImage
-        let heartButtonConfig = UIImage.SymbolConfiguration(pointSize: constants.favoriteButtonSize, weight: .light, scale: .large)
         
         if AppConstants.shared.favoriteVolumes.contains(where: {$0.id == volume?.id}) {
             favoriteButton.tintColor = .heartColor
-            heartImage = UIImage(systemName: "heart.circle.fill", withConfiguration: heartButtonConfig)!.withRenderingMode(.alwaysOriginal)
+            heartImage = heartImageState.active
         } else {
             favoriteButton.tintColor = .lightGray
-            heartImage = UIImage(systemName: "heart.circle", withConfiguration: heartButtonConfig)!
+            heartImage = heartImageState.inactive
         }
         
         favoriteButton.setImage(heartImage, for: .normal)
@@ -145,8 +144,15 @@ class VolumeDetailViewController: BaseViewController {
     
     // MARK: - ViewController constants
     struct constants {
-        static let buyTitle = "Comprar por" //localization
-        static let noLinkMessage = "Não há link disponível"
+        static let buyTitle = "Buy"
+        static let noLinkMessage = "Unavailable link"
         static let favoriteButtonSize:CGFloat = 50
+    }
+    
+    struct heartImageState {
+        static private let heartButtonConfig = UIImage.SymbolConfiguration(pointSize: constants.favoriteButtonSize, weight: .light, scale: .large)
+        
+        static let active = UIImage(systemName: "heart.circle.fill", withConfiguration: heartButtonConfig)!.withRenderingMode(.alwaysOriginal)
+        static let inactive = UIImage(systemName: "heart.circle", withConfiguration: heartButtonConfig)!
     }
 }
