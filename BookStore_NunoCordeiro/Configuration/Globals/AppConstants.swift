@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// Singleton with constants and variables to be used throughout the app
 class AppConstants {
     
     private init() {}   // ensures singleton

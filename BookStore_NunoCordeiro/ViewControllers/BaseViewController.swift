@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// UIViewController subclass with additional functions to be reused on any App VC
 class BaseViewController: UIViewController {
     
     private var loaderView: UIView = UIView()

@@ -8,6 +8,7 @@
 import UIKit
 
 protocol VolumeDetailDelegate {
+    /// Fired whenever book favorite status changes
     func didChangeFavorite()
 }
 

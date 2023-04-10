@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Singleton to fetch Google Books API
 class ApiManager {
     
     
@@ -29,6 +30,13 @@ class ApiManager {
     
     //MARK: - Implementation
     
+    /// Generic funtion to fetch a given endpoint and return decoded object
+    /// - Parameters:
+    ///   - model: Exoected data struct to be returned
+    ///   - endpoint: address to fetch as enumerated in ``Endpoint``
+    ///   - requestType: REST verb as enumerated in ``RequestType``
+    ///   - urlParameters: Dictionary of parameters to be included in URL
+    /// - Returns: Object ir array of type T described in model parameter
     func sendRequest<T:Codable>(model: T.Type,
                                 with endpoint: Endpoint,
                                 requestType: RequestType,
